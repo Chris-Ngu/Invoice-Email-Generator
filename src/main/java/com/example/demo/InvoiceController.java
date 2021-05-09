@@ -7,9 +7,9 @@ import org.springframework.ui.Model;
 @Controller
 public class InvoiceController {
 
-	@GetMapping("/test")
-	public String Test(Model model) {
-		model.addAttribute("message, "Test");
-		return "Test";
-	}
+//    @GetMapping("/test")
+    public String Test(Model model) {
+        model.addAttribute("Something", "InvoiceValueFromController");
+        return "Invoice";
+    }
 }
