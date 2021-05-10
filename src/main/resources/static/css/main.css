@@ -1,0 +1,33 @@
+#container {
+    height: 100vh;
+    width: 85%;
+
+    /*not sure why this is even needed, align self not working*/
+    margin-left: 7.5%;
+    /*align-self: center;*/
+}
+
+#headerContainer{
+    display: flex;
+    border: 1px solid green;
+}
+
+#logo{
+    width: 300px;
+    height: 150px;
+}
+
+#headerInvoice{
+    margin-top: 50px;
+    font-weight: bold;
+    opacity: 0.5;
+    position: absolute;
+    right: 0;
+    /*this is not working for some reason*/
+    /*align-self: flex-end;*/
+    margin-right: 9%;
+}
+
+informationContainer{
+    
+}

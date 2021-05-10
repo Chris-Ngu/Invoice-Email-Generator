@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 public class InvoiceController {
 
     @GetMapping()
-    public String Test(Model model) {
+    public String Invoice(Model model) {
         model.addAttribute("Something", "Invoice # 1");
         model.addAttribute("item", Arrays.asList(
                 new Item("Keyboard", 10.0, 1),
