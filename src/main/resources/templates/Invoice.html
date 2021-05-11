@@ -9,7 +9,6 @@
         <link th:href="@{/css/main.css}" rel="stylesheet">
     </head>
     <body id="container">
-        <!--<h1 th:text="${Something}"/>-->
         <div id="headerContainer">
             <img th:src="@{/images/placeholderLogo.png}" id="logo"/>
             <h2 id="headerInvoice">Invoice</h2>
@@ -17,6 +16,12 @@
         <div id="informationContainer">
             <div id="customerInformation">
                 <!--customer information here-->
+                <p id="vendorName" th:text="${vendor.name}"/>
+                <p id="vendorAddress" th:text="${vendor.street}"/>
+                <p id="vendorProvince" th:text="${vendor.province}"/>
+                <p id="vendorCountry" th:text="${vendor.country}"/>
+                <p id="vendorPhone" th:text="${vendor.phone}"/>
+                <p id="vendorEmail" th:text="${vendor.email}"/>
             </div>
             <div id="invoiceInformation">
                 <!--invoice information here-->

@@ -10,7 +10,14 @@ public class InvoiceController {
 
     @GetMapping()
     public String Invoice(Model model) {
-        model.addAttribute("Something", "Invoice # 1");
+        model.addAttribute("vendor", new Vendor(
+                "John Doe",
+                "8 Elm Street",
+                "Cambridge, CB1 4DH",
+                "United Kingdom",
+                "XXX-XXX-XXXX",
+                "johndoe@email.com"
+        ));
         model.addAttribute("item", Arrays.asList(
                 new Item("Keyboard", 10.0, 1),
                 new Item("Headphone", 12.0, 2)
