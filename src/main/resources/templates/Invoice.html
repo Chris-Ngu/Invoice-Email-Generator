@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
     <head>
-        <title>TODO supply a title</title>
+        <title>lorem Ipsum Invoices</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
@@ -14,17 +14,52 @@
             <h2 id="headerInvoice">Invoice</h2>
         </div>
         <div id="informationContainer">
-            <div id="customerInformation">
-                <!--customer information here-->
-                <p id="vendorName" th:text="${vendor.name}"/>
-                <p id="vendorAddress" th:text="${vendor.street}"/>
-                <p id="vendorProvince" th:text="${vendor.province}"/>
-                <p id="vendorCountry" th:text="${vendor.country}"/>
-                <p id="vendorPhone" th:text="${vendor.phone}"/>
-                <p id="vendorEmail" th:text="${vendor.email}"/>
+            <div id="vendorInformation">
+                <div id="vendorAddressContainer">
+                    <p class="vendorPoint" id="vendorName" th:text="${vendor.name}"/>
+                    <p class="vendorPoint" id="vendorAddress" th:text="${vendor.street}"/>
+                    <p class="vendorPoint" id="vendorProvince" th:text="${vendor.province}"/>
+                    <p class="vendorPoint" id="vendorCountry" th:text="${vendor.country}"/>
+                </div>
+
+                <div id="vendorContactContainer">
+                    <p class="vendorPoint" id="vendorPhone" th:text="${vendor.phone}"/>
+                    <p class="vendorPoint" id="vendorEmail" th:text="${vendor.email}"/>
+                </div>
             </div>
-            <div id="invoiceInformation">
-                <!--invoice information here-->
+            <div id="invoiceInformationContainer">
+                <div class="row">
+                    <div class="col">
+                        <p class="invoiceHeader">Invoice Number</p>
+                    </div>
+                    <div class="col">
+                        <p class="invoicePoint" th:text="${invoiceInfo.number}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="invoiceHeader">Invoice Date</p>
+                    </div>
+                    <div class="col">
+                        <p class="invoicePoint" th:text="${invoiceInfo.dateCreated}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="invoiceHeader">Payment terms</p>
+                    </div>
+                    <div class="col">
+                        <p class="invoicePoint" th:text="${invoiceInfo.terms}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="invoiceHeader">Due date</p>
+                    </div>
+                    <div class="col">
+                        <p class="invoicePoint" th:text="${invoiceInfo.dateDue}"/>
+                    </div>
+                </div>
             </div>
         </div>
 

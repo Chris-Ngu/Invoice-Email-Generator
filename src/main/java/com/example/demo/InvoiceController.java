@@ -18,6 +18,12 @@ public class InvoiceController {
                 "XXX-XXX-XXXX",
                 "johndoe@email.com"
         ));
+        model.addAttribute("invoiceInfo", new InvoiceInfo(
+                1,
+                "28/07/2016",
+                "Due on receipt",
+                "28/07/2016"
+        ));
         model.addAttribute("item", Arrays.asList(
                 new Item("Keyboard", 10.0, 1),
                 new Item("Headphone", 12.0, 2)
