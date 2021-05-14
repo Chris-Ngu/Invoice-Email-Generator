@@ -5,11 +5,13 @@ public class Item {
     private String itemName;
     private double itemCost;
     private int quantity;
+    private double itemTotal;
 
     public Item(String itemName, double itemCost, int quantity) {
         this.itemName = itemName;
         this.itemCost = itemCost;
         this.quantity = quantity;
+        this.itemTotal = itemCost * quantity;
     }
 
     public String getItemName() {
@@ -20,5 +22,8 @@ public class Item {
     }
     public int getQuantity(){
         return this.quantity;
+    }
+    public double getItemTotal(){
+        return this.itemTotal;
     }
 }

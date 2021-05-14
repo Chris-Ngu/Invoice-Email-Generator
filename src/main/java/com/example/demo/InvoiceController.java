@@ -28,6 +28,9 @@ public class InvoiceController {
                 new Item("Keyboard", 10.0, 1),
                 new Item("Headphone", 12.0, 2)
         ));
+        model.addAttribute("billTo", "janedoe@email.com");
+        model.addAttribute("note", "Thanks for your business!");
+        model.addAttribute("taxRate", "8.6");
         return "Invoice";
     }
 }
