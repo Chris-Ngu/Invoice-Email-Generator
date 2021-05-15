@@ -13,7 +13,7 @@
 * Angular
 
 ### WIP
-* Thymeleaf Invoice design
+* Thymeleaf Invoice design (Not really responsive past 1920px and on mobile devices)
 * API routes for data input
 * Generating and exporting invoices to email
 
