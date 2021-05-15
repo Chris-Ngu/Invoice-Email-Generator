@@ -55,7 +55,7 @@
 
 #invoiceInformationContainer{
     width: 300px;
-    
+
     /*align-self: flex-end is not working here*/
     position: absolute;
     right: 0;
@@ -86,7 +86,35 @@
     margin-top: -10px;
 }
 
+#noteFooterContainer{
+    display: flex;
+}
+
 #noteHeader{
     font-weight: bold;
     font-size: 27px;
+}
+
+#subTotalContainer{
+    position: absolute;
+    right: 0;
+    margin-right: 40%;
+}
+
+#subtotalHeader{
+    margin: 0px;
+    font-weight: bold;
+    font-size: 27px;
+    text-align: end;
+}
+
+#totalContainer{
+    position: absolute;
+    right: 0;
+    margin-right: 7.5%;
+    margin-top: 10px;
+}
+
+#totalValue{
+    text-align: end;
 }

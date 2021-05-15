@@ -1,4 +1,7 @@
 <!--ref https://www.paypalobjects.com/digitalassets/c/website/marketing/emea/gb/en/email-invoice/step-3.png-->
+<!--Limit container with max-width for nothing longer than 1920px-->
+<!--Create media queries for mobile viewers-->
+
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
     <head>
@@ -95,9 +98,14 @@
                 <p th:text="${note}"/>
             </div>
             <div id="subTotalContainer">
-                <p>Subtotal</p>
-                <p th:text="'Tax' + '(' + ${taxRate} + '%' + ')'">
+                <p id="subtotalHeader">Subtotal</p>
+                <p id="subtotalHeader" th:text="'Tax' + '(' + ${taxRate} + '%' + ')'">
+            </div>
+            <div id="totalContainer">
+                <p id="totalValue" th:text="'$' + ${subTotal}">
+                <p id="totalValue" th:text="'$' + ${taxAmount}"/>
             </div>
         </div>
+
     </body>
 </html>
