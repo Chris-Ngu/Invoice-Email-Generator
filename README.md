@@ -16,3 +16,7 @@
 * Thymeleaf Invoice design
 * API routes for data input
 * Generating and exporting invoices to email
+
+### Screenshots
+![image](https://user-images.githubusercontent.com/57853013/118371400-2107f180-b572-11eb-91a8-b39f2c1ebbf0.png)
+
