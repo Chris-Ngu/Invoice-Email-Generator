@@ -7,6 +7,14 @@
     /*align-self: center;*/
 }
 
+#invoiceContainer{
+    border: 1px solid gray;
+    padding-bottom: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 40px;
+}
+
 #headerContainer{
     display: flex;
 }
@@ -24,7 +32,7 @@
     right: 0;
     /*this is not working for some reason*/
     /*align-self: flex-end;*/
-    margin-right: 9%;
+    margin-right: 10%;
 }
 
 #informationContainer{
@@ -59,7 +67,7 @@
     /*align-self: flex-end is not working here*/
     position: absolute;
     right: 0;
-    margin-right: 7.5%;
+    margin-right: 9%;
 }
 
 .invoiceHeader{
@@ -111,10 +119,21 @@
 #totalContainer{
     position: absolute;
     right: 0;
-    margin-right: 7.5%;
+    margin-right: 9%;
     margin-top: 10px;
 }
 
 #totalValue{
     text-align: end;
+}
+
+#buttonOptions{
+    display: flex;
+    margin-top: 20px;
+}
+
+.invoiceButton {
+    margin-right: 20px;
+    width: 150px;
+    
 }
