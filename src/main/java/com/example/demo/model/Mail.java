@@ -14,7 +14,7 @@ public class Mail {
     public Mail() {
     }
 
-    public Mail(String from, String mailTO, String subject, ArrayList<Object> attachments,
+    public Mail(String from, String mailTo, String subject, ArrayList<Object> attachments,
             Map<String, Object> props
     ) {
         this.from = from;
