@@ -30,8 +30,6 @@ public class InvoiceController {
         total = Double.parseDouble(df.format(subTotal * (1 + (Double.parseDouble(taxRate) / 100))));
         taxAmount = Double.parseDouble(df.format(total - subTotal));
         
-        
-        
         model.addAttribute("vendor", new Vendor(
                 "John Doe",
                 "8 Elm Street",

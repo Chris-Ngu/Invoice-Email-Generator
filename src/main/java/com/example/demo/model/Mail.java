@@ -24,6 +24,15 @@ public class Mail {
         this.props = props;
     }
 
+    public Mail(String from, String mailTo, String subject,
+            Map<String, Object> props
+    ) {
+        this.from = from;
+        this.mailTo = mailTo;
+        this.subject = subject;
+        this.props = props;
+    }
+
     public String getFrom() {
         return this.from;
     }
