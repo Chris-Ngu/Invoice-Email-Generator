@@ -3,18 +3,18 @@ package com.example.demo.restAPI.models;
 public class BaseRest {
 
     private final long id;
-    private final String content;
+    private final int statusCode;
 
-    public BaseRest(long id, String content) {
+    public BaseRest(long id, int statusCode) {
         this.id = id;
-        this.content = content;
+        this.statusCode = statusCode;
     }
 
     public long getId() {
         return this.id;
     }
 
-    public String getContent() {
-        return this.content;
+    public int getStatusCode() {
+        return this.statusCode;
     }
 }
