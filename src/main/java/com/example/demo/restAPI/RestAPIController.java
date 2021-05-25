@@ -5,11 +5,15 @@ import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.restAPI.models.BaseRest;
 import com.example.demo.restAPI.models.InvoiceTest;
+import com.example.demo.thymeleaf.models.Vendor;
+import com.example.demo.thymeleaf.models.Item;
+import com.example.demo.thymeleaf.models.InvoiceInfo;
+
+import static com.example.demo.restAPI.StaticInvoiceData.INVOICE_INFO;
 
 @RestController
 public class RestAPIController {
 
-    private static final String template = "Hello, %s";
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/api/test")
@@ -17,38 +21,17 @@ public class RestAPIController {
         return new BaseRest(counter.incrementAndGet(), 200);
     }
 
+    // Would need to modify model to support objects
+    // Could ask for invoiceNumber and pull from database for invoice informatio
+    // Currently just pulling example constant data for api
     @GetMapping("/api/generateinvoice")
-    public InvoiceTest generateInvoice(@RequestParam int invoiceNumber,
-            String dateCreated,
-            String terms,
-            String dueDate,
-            String name,
-            String street,
-            String province,
-            String country,
-            String phone,
-            String email
-    ) {
-        // id autogenerate
-        // Insert status code here
+    public InvoiceTest generateInvoice(@RequestParam int invoiceNumber) {
+        // fetch database repository for specific invoice data
+
         return new InvoiceTest(
                 counter.incrementAndGet(),
                 200,
-                1,
-                dateCreated,
-                terms,
-                dueDate,
-                name,
-                street,
-                province,
-                country,
-                phone,
-                email
+                invoiceNumber
         );
     }
-
-//    @GetMapping("/api/greeting")
-//    public BaseRest baseRestFunction(@RequestParam(value = "name", defaultValue = "world") String name) {
-//        return new BaseRest(counter.incrementAndGet(), String.format(name, args));
-//    }
 }
