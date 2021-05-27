@@ -15,11 +15,12 @@ import com.example.demo.thymeleaf.models.InvoiceInfo;
 import static com.example.demo.restAPI.StaticInvoiceData.*;
 
 @RestController
+@RequestMapping("/api")
 public class RestAPIController {
 
     private final AtomicLong counter = new AtomicLong();
 
-    @GetMapping("/api/test")
+    @GetMapping("/test")
     public BaseRest apiTest() {
         return new BaseRest(counter.incrementAndGet(), 200);
     }
@@ -27,7 +28,7 @@ public class RestAPIController {
     // Would need to modify model to support objects
     // Could ask for invoiceNumber and pull from database for invoice informatio
     // Currently just pulling example constant data for api
-    @GetMapping("/api/generateinvoice")
+    @GetMapping("/generateinvoice")
     public InvoiceTest generateInvoice(@RequestParam int invoiceNumber) {
         // fetch database repository for specific invoice data
         // Can use try catch here too
