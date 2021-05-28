@@ -10,9 +10,6 @@
 * Thymeleaf (Invoice emails)
 * Bootstrap (Thymeleaf and frontend)
 
-### Upcoming stack
-* Angular
-
 ### Backend WIP
 * Thymeleaf Invoice design (Not really responsive past 1920px and on mobile devices)
 * Generating and exporting invoices to email
