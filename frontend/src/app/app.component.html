@@ -12,25 +12,32 @@
 
   <!-- page content -->
   <div class="page-content">
-    <p class="form-header">Your name</p>
-    <input id="typeahead-basic" type="text" class="form-control" [formControl]="name">
-    <p class="form-header">Your street</p>
-    <input id="typeahead-basic" type="text" class="form-control" [formControl]="street">
-    <p class="form-header">Your province</p>
-    <input id="typeahead-basic" type="text" class="form-control" [formControl]="province">
-    <p class="form-header">Your country</p>
-    <input id="typeahead-basic" type="text" class="form-control" [formControl]="country">
-    <p class="form-header">Your phone</p>
-    <input id="typeahead-basic" type="text" class="form-control" [formControl]="phone">
-    <p class="form-header">Your email</p>
-    <input id="typeahead-basic" type="text" class="form-control" [formControl]="email">
+    <div class="invoice-column">
+      <p class="form-header">Your name</p>
+      <input id="typeahead-basic" type="text" class="form-control" [formControl]="name">
+      <p class="form-header">Your street</p>
+      <input id="typeahead-basic" type="text" class="form-control" [formControl]="street">
+      <p class="form-header">Your province</p>
+      <input id="typeahead-basic" type="text" class="form-control" [formControl]="province">
+      <p class="form-header">Your country</p>
+      <input id="typeahead-basic" type="text" class="form-control" [formControl]="country">
+      <p class="form-header">Your phone</p>
+      <input id="typeahead-basic" type="text" class="form-control" [formControl]="phone">
+      <p class="form-header">Your email</p>
+      <input id="typeahead-basic" type="text" class="form-control" [formControl]="email">
 
-    <p class="form-header">Invoice Number</p>
-    <input id="typeahead-basic" type="text" class="form-control" [formControl]="invoiceNumber">
-    <p class="form-header">Invoice Notes</p>
-    <input id="typeahead-basic" type="text" class="form-control" [formControl]="notes">
-    <p class="form-header">Invoice due Date</p>
-    <ngb-datepicker #d (dateSelect)="onDueDateSelect($event)"></ngb-datepicker>
-    <!-- <input id="typeahead-basic" type="text" class="form-control" [formControl]="email"> -->
+      <p class="form-header">Invoice Number</p>
+      <input id="typeahead-basic" type="text" class="form-control" [formControl]="invoiceNumber">
+      <p class="form-header">Invoice Notes</p>
+      <input id="typeahead-basic" type="text" class="form-control" [formControl]="notes">
+      <p class="form-header">Invoice due Date</p>
+      <ngb-datepicker #d (dateSelect)="onDueDateSelect($event)"></ngb-datepicker>
+      <!-- <input id="typeahead-basic" type="text" class="form-control" [formControl]="email"> -->
+    </div>
+    <div class="invoice-column">
+      <p class="form-header">Your name</p>
+      <input id="typeahead-basic" type="text" class="form-control" [formControl]="name">
+
+    </div>
   </div>
 </div>

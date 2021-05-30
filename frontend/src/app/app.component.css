@@ -2,10 +2,15 @@
     /* centering on page */
     margin: 0 auto;
     max-width: 1920px;
+    padding: 20px;
 }
 
 .page-content{
+    display: flex;
+    margin-top: 10px;
 }
+
+
 
 .form-control{
     width: 200px;
