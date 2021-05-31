@@ -38,9 +38,20 @@ export class AppComponent {
 
   public invoiceItemHandler = (invoiceRefArray: Array<ComponentRef<ItemPanelComponent>>): void => {
     this.childInvoicesRef = invoiceRefArray;
-    // invoiceArray.forEach((invoiceInstance: ComponentRef<ItemPanelComponent>) => {
-    //   // do something here
-    // })
+  }
+
+  public submitInvoiceItem = (): void => {
+    // can set warning on UI
+    if (this.formValidation() === false) return;
+
+    // https://stackoverflow.com/questions/58378294/posting-a-nested-object-from-angular-to-spring-rest-api-is-always-null
+    // REST call to Spring backend
+    // Need to test with basic response first
+
+  }
+
+  private formValidation = (): boolean => {
+    return true;
   }
 
 }
