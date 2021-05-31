@@ -35,7 +35,7 @@
       <!-- <input id="typeahead-basic" type="text" class="form-control" [formControl]="email"> -->
     </div>
     <div class="invoice-column">
-      <app-invoice-plus-button>
+      <app-invoice-plus-button (updateParent)="invoiceItemHandler($event)">
 
       </app-invoice-plus-button>
 

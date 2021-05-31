@@ -1,5 +1,5 @@
 // ref: https://stackblitz.com/edit/add-or-remove-dynamic-component?file=src%2Fapp%2Fparent%2Fparent.component.ts
-import { Component, ComponentRef, ComponentFactoryResolver, ViewChild, ViewContainerRef, ViewRef } from '@angular/core';
+import { Component, ComponentRef, ComponentFactoryResolver, ViewChild, ViewContainerRef, ViewRef, Output, EventEmitter } from '@angular/core';
 import { ItemPanelComponent } from "../item-panel/item-panel.component";
 
 @Component({
@@ -15,6 +15,10 @@ export class InvoicePlusButtonComponent {
   childInvoiceKey: number = 0;
   childInvoiceComponents = Array<ComponentRef<ItemPanelComponent>>();
 
+  // Passes invoice item data to main invoice form (app.component.ts)
+  @Output()
+  updateParent: EventEmitter<Array<ComponentRef<ItemPanelComponent>>> = new EventEmitter();
+
   constructor(private CFR: ComponentFactoryResolver) { }
 
   createInvoiceItem = (): void => {
@@ -25,6 +29,7 @@ export class InvoicePlusButtonComponent {
     invoicePanel.parentRef = this;
 
     this.childInvoiceComponents.push(invoicePanelRef);
+    this.updateParent.emit(this.childInvoiceComponents);
   }
 
   removeInvoiceItem = (key: number): void => {
@@ -36,6 +41,7 @@ export class InvoicePlusButtonComponent {
     let vcrIndex = this.childInvoiceComponents.indexOf(invoiceRef);
     this.VCR.remove(vcrIndex);
     this.childInvoiceComponents = this.childInvoiceComponents.filter(x => x.instance.key !== key);
+    this.updateParent.emit(this.childInvoiceComponents);
   }
 
 }
