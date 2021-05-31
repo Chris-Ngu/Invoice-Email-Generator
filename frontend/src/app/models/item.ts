@@ -15,4 +15,25 @@ export class Item {
         this.quantity = quantity;
         this.itemTotal = this.quantity * this.itemCost;
     }
+
+    public getItemName = (): string => {
+        return this.itemName;
+    }
+
+    public getItemCost = (): number => {
+        return this.itemCost;
+    }
+
+    public getQuantity = (): number => {
+        return this.quantity;
+    }
+
+    public getItemTotal = (): number => {
+        return this.itemTotal;
+    }
+
+    public getData = (): Item => {
+        return this;
+    }
+
 }

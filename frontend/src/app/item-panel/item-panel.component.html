@@ -1,3 +1,14 @@
-<button (click)="removeInvoiceItem()">
-    Key: {{key}}
-</button>
+<div>
+    <h4>Item {{key}}</h4>
+    <p>Item Name</p>
+    <input class="form-control" [formControl]="itemName">
+    <p>Item Cost</p>
+    <input class="form-control" type="number" step="any" [formControl]="itemCost" (input)="setItemTotal()">
+    <p>Item Quantity</p>
+    <input class="form-control" type="number" [formControl]="quantity" (input)="setItemTotal()">
+    <p>Item Total</p>
+    ${{itemTotal.value}}
+    <button (click)="removeInvoiceItem()">
+        Remove Item {{key}}
+    </button>
+</div>
