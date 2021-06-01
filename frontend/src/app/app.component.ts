@@ -1,4 +1,4 @@
-import { Component, ComponentRef } from '@angular/core';
+import { Component, ComponentRef, Injectable } from '@angular/core';
 import { FormControl } from "@angular/forms";
 import { NgbDate } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClient } from "@angular/common/http";
@@ -17,6 +17,7 @@ import { ItemPanelComponent } from "./item-panel/item-panel.component";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+@Injectable({ providedIn: "root" })
 export class AppComponent {
   title: string = 'frontend';
 
@@ -51,9 +52,9 @@ export class AppComponent {
     this.childInvoicesRef = invoiceRefArray;
   }
 
-  public submitInvoiceItem = (): void => {
+  public submitInvoiceItem = (): Observable<any> => {
     // can set warning on UI
-    if (this.formValidation() === false) return;
+    if (this.formValidation() === false) return new Observable;
 
     // https://stackoverflow.com/questions/58378294/posting-a-nested-object-from-angular-to-spring-rest-api-is-always-null
     // REST call to Spring backend
@@ -82,6 +83,7 @@ export class AppComponent {
     const headers = { "content-type": "application/json" };
     // https://www.tektutorialshub.com/angular/angular-http-post-example/#model
     // Call POST request here
+    return new Observable();
 
   }
 
