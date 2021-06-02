@@ -5,12 +5,17 @@ import { HttpClient } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError, retry } from "rxjs/operators";
 
+// models
 import { InvoiceInfo } from "./models/invoice-info";
 import { Item } from "./models/item";
 import { Vendor } from "./models/vendor";
 import { Invoice } from "./models/invoice";
 
+// Custom components
 import { ItemPanelComponent } from "./item-panel/item-panel.component";
+
+// constants
+import { baseAddress, createInvoiceExt } from "../constants";
 
 @Component({
   selector: 'app-root',
@@ -37,7 +42,6 @@ export class AppComponent {
 
   //Invoicedata
   childInvoicesRef = Array<ComponentRef<ItemPanelComponent>>();
-  childInvoices: Item[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -52,13 +56,24 @@ export class AppComponent {
     this.childInvoicesRef = invoiceRefArray;
   }
 
-  public submitInvoiceItem = (): Observable<any> => {
+  public submitInvoice = (): Observable<any> => {
     // can set warning on UI
-    if (this.formValidation() === false) return new Observable;
+    if (this.formValidation() === false) return new Observable();
 
     // https://stackoverflow.com/questions/58378294/posting-a-nested-object-from-angular-to-spring-rest-api-is-always-null
+    // https://www.tektutorialshub.com/angular/angular-http-post-example/#model
     // REST call to Spring backend
     // Need to test with basic response first
+    const InvoiceObj = this.createInvoiceObject();
+    const headers = { "content-type": "application/json" };
+    const body = JSON.stringify(InvoiceObj);
+
+    // try catch, need to test this
+    return this.http.post(`${baseAddress}${createInvoiceExt}`, body, { headers: headers });
+
+  }
+
+  private createInvoiceObject = (): Invoice => {
     const vendorInfo: Vendor = new Vendor(
       this.name.value,
       this.street.value,
@@ -73,18 +88,15 @@ export class AppComponent {
       this.dueDate);
 
     // converting itemRefs to items
-    this.childInvoicesRef.forEach((invoiceRef: ComponentRef<ItemPanelComponent>) => {
-      this.childInvoices.push(new Item(
+    const childInvoices: Item[] = this.childInvoicesRef.map((invoiceRef: ComponentRef<ItemPanelComponent>) => {
+      return (new Item(
         invoiceRef.instance.itemName.value,
         invoiceRef.instance.itemCost.value,
         invoiceRef.instance.quantity.value,
         invoiceRef.instance.itemTotal.value));
-    })
-    const headers = { "content-type": "application/json" };
-    // https://www.tektutorialshub.com/angular/angular-http-post-example/#model
-    // Call POST request here
-    return new Observable();
+    });
 
+    return new Invoice(invoiceInfo, vendorInfo, childInvoices)
   }
 
   private formValidation = (): boolean => {
