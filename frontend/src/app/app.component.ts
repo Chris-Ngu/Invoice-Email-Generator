@@ -15,7 +15,7 @@ import { Invoice } from "./models/invoice";
 import { ItemPanelComponent } from "./item-panel/item-panel.component";
 
 // constants
-import { baseAddress, createInvoiceExt } from "../constants";
+import { baseAddress, createInvoiceExt, testExt } from "../constants";
 
 @Component({
   selector: 'app-root',
@@ -69,8 +69,19 @@ export class AppComponent {
     const body = JSON.stringify(InvoiceObj);
 
     // try catch, need to test this
-    return this.http.post(`${baseAddress}${createInvoiceExt}`, body, { headers: headers });
+    this.http.post(`${baseAddress}${createInvoiceExt}`, body, { headers: headers }).subscribe((data: any) => {
+      console.log(data);
+    });
 
+    return new Observable();
+
+  }
+
+  private testBackend = (): Observable<any> => {
+    this.http.get(`${baseAddress}${testExt}`).subscribe((data: any) => {
+      console.log(data);
+    });
+    return new Observable();
   }
 
   private createInvoiceObject = (): Invoice => {
