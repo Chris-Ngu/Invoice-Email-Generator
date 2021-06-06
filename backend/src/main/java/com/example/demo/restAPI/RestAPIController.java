@@ -15,20 +15,19 @@ import com.example.demo.restAPI.models.Vendor;
 
 @RestController
 @RequestMapping("/api")
-@CrossOrigin() // Might need to edit this later, security related
+@CrossOrigin(origins = "http://localhost:4200") // Might need to edit this later, security related
 public class RestAPIController {
 
     private final AtomicLong counter = new AtomicLong();
-
-    @GetMapping("/test")
+    
+    @GetMapping(path = "/test")
     public BaseRest apiTest() {
         return new BaseRest(counter.incrementAndGet(), 200);
     }
 
-    // Would need to modify model to support objects
-    @CrossOrigin()
-    @GetMapping("/generateinvoice")
-    public Invoice generateInvoice(@RequestParam Invoice invoiceObj) {
+    // Receiving null data somewhere, or object converter is not working right
+    @PostMapping(path = "/generateinvoice", consumes = "application/json", produces = "application/json")
+    public Invoice generateInvoice(@RequestBody Invoice invoiceObj) {
         return new Invoice();
 //        // Can use try catch here too
 //        if (INVOICE_INFO.getNumber() == invoiceNumber) {
