@@ -1,4 +1,4 @@
-# Invoice-Email-Generator
+# Invoice-Email-Generator.
 
 ### What is this project?
 * An autogenerating invoice system for a store front.
