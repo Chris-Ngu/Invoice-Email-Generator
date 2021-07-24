@@ -5,7 +5,7 @@
 * A front end (Angular) will send REST requests to backend (Spring Boot) and Thymeleaf will autogenerate an invoice for a total amount due
 
 ### Tech Stack
-* Angular (Frontend)
+* Angular (Frontend).
 * Spring Boot (Backend)
 * Thymeleaf (Invoice emails)
 * Bootstrap (Thymeleaf and frontend)
